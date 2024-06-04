@@ -6,9 +6,21 @@ const ReposList = () => {
   return (
     <FlatList
       data={videogames.results}
+      ItemSeparatorComponent={() => <Text> </Text>}
       renderItem={({ item: game }) => (
-        <View>
-          <Text>{game.name}</Text>
+        <View
+          key={game.id}
+          style={{
+            padding: 20,
+            paddingBottom: 5,
+            paddingTop: 5,
+          }}
+        >
+          <Text style={{ fontWeight: "bold", marginBottom: 5 }}>
+            {game.name}
+          </Text>
+          <Text>Fecha de Lanzamiento: {game.released}</Text>
+          <Text>Rating: {game.rating}</Text>
         </View>
       )}
     />
