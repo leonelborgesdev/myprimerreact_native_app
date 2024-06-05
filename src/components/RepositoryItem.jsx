@@ -9,6 +9,7 @@ const RepositoryItem = (props) => (
     </StyledText>
     <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
     <StyledText>Rating: {props.rating}</StyledText>
+    <StyledText>Rating Top: {props.rating_top}</StyledText>
   </View>
 );
 
