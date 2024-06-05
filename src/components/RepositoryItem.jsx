@@ -1,11 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import StyledText from "./StyledTest.jsx";
 
 const RepositoryItem = (props) => (
   <View key={props.id} style={styles.container}>
-    <Text style={styles.strong}>{props.name}</Text>
-    <Text>Fecha de Lanzamiento: {props.released}</Text>
-    <Text>Rating: {props.rating}</Text>
+    <StyledText big bold>
+      {props.name}
+    </StyledText>
+    <StyledText blue>Fecha de Lanzamiento: {props.released}</StyledText>
+    <StyledText small>Rating: {props.rating}</StyledText>
   </View>
 );
 
