@@ -4,11 +4,11 @@ import StyledText from "./StyledTest.jsx";
 
 const RepositoryItem = (props) => (
   <View key={props.id} style={styles.container}>
-    <StyledText big bold>
+    <StyledText fontSize="subheading" fontWeight="bold">
       {props.name}
     </StyledText>
-    <StyledText blue>Fecha de Lanzamiento: {props.released}</StyledText>
-    <StyledText small>Rating: {props.rating}</StyledText>
+    <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
+    <StyledText>Rating: {props.rating}</StyledText>
   </View>
 );
 
