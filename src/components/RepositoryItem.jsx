@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import StyledText from "./StyledText.jsx";
 import RepositoryGenres from "./RepositoryGenres.jsx";
+import RespositoryRatings from "./RepositoryRatings.jsx";
 
 const RepositoryItem = (props) => (
   <View key={props.id} style={styles.container}>
@@ -11,6 +12,7 @@ const RepositoryItem = (props) => (
     <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
     <StyledText>Rating: {props.rating}</StyledText>
     <StyledText>Rating Top: {props.rating_top}</StyledText>
+    <RespositoryRatings {...props} />
     <RepositoryGenres {...props} />
   </View>
 );
