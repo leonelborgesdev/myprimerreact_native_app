@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import StyledText from "./StyledText.jsx";
 import RepositoryGenres from "./RepositoryGenres.jsx";
 import RespositoryRatings from "./RepositoryRatings.jsx";
+import theme from "../theme.js";
 
 const RepositoryItem = (props) => (
   <View key={props.id} style={styles.container}>
@@ -10,8 +11,8 @@ const RepositoryItem = (props) => (
       {props.name}
     </StyledText>
     <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
-    <StyledText>Rating: {props.rating}</StyledText>
     <StyledText>Rating Top: {props.rating_top}</StyledText>
+    <StyledText style={styles.rating}>Rating: {props.rating}</StyledText>
     <RespositoryRatings {...props} />
     <RepositoryGenres {...props} />
   </View>
@@ -23,10 +24,12 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingTop: 5,
   },
-  strong: {
-    color: "#09f",
-    fontWeight: "bold",
-    marginBottom: 5,
+  rating: {
+    padding: 4,
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary,
+    alignSelf: "flex-start",
+    borderRadius: 4,
   },
 });
 
