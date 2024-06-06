@@ -7,8 +7,15 @@ const RespositoryRatings = (props) => {
       {props.ratings.map((rating) => {
         return (
           <View key={rating.id}>
-            <StyledText fontWeight="bold">{rating.title}</StyledText>
-            <StyledText>{rating.percent}</StyledText>
+            <StyledText
+              align="center"
+              fontWeight="bold"
+              textTransform="uppercase"
+            >
+              {rating.title}
+            </StyledText>
+
+            <StyledText align="center">{rating.percent}</StyledText>
           </View>
         );
       })}

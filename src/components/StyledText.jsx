@@ -21,9 +21,17 @@ const styles = StyleSheet.create({
   subheading: {
     fontSize: theme.fontSizes.subheading,
   },
+  textAlignCenter: {
+    textAlign: "center",
+  },
+  textTransformUpperCase: {
+    textTransform: "uppercase",
+  },
 });
 
 export default function StyledText({
+  textTransform,
+  align,
   children,
   color,
   fontSize,
@@ -33,6 +41,8 @@ export default function StyledText({
 }) {
   const textStyles = [
     styles.text,
+    textTransform === "uppercase" && styles.textTransformUpperCase,
+    align === "center" && styles.textAlignCenter,
     color === "primary" && styles.colorPrimary,
     color === "secondary" && styles.colorSecondary,
     fontSize === "subheading" && styles.subheading,
