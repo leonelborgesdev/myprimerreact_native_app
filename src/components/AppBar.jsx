@@ -1,5 +1,5 @@
 import React from "react";
-import { ViewPropTypes, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import StyledText from "./StyledText.jsx";
 import Constants from "expo-constants";
 import theme from "../theme.js";
@@ -12,18 +12,18 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   text: {
-    color: theme.appBar.primaryText,
+    color: theme.appBar.textPrimary,
   },
 });
 
-const appBar = () => {
+const AppBar = () => {
   return (
-    <View styles={styles.container}>
-      <StyleSheet fontWeight="bold" styles={styles.text}>
-        Repositories
-      </StyleSheet>
+    <View style={styles.container}>
+      <StyledText fontWeight="bold" styles={styles.text}>
+        Repositoriesssss
+      </StyledText>
     </View>
   );
 };
 
-export default appBar;
+export default AppBar;
