@@ -5,8 +5,8 @@ import RepositoryGenres from "./RepositoryGenres.jsx";
 import RespositoryRatings from "./RepositoryRatings.jsx";
 import theme from "../theme.js";
 
-const RepositoryItem = (props) => (
-  <View key={props.id} style={styles.container}>
+const RepositoryItemHeader = (props) => (
+  <View>
     <StyledText fontSize="subheading" fontWeight="bold">
       {props.name}
     </StyledText>
@@ -14,6 +14,12 @@ const RepositoryItem = (props) => (
     <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
     <StyledText>Rating Top: {props.rating_top}</StyledText>
     <StyledText style={styles.rating}>Rating: {props.rating}</StyledText>
+  </View>
+);
+
+const RepositoryItem = (props) => (
+  <View key={props.id} style={styles.container}>
+    <RepositoryItemHeader {...props} />
     <RespositoryRatings {...props} />
     <RepositoryGenres {...props} />
   </View>
