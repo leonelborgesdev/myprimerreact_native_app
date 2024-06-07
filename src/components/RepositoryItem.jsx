@@ -14,8 +14,10 @@ const RepositoryItemHeader = (props) => (
       <StyledText fontSize="subheading" fontWeight="bold">
         {props.name}
       </StyledText>
-      <StyledText>Fecha de lanzamiento: {props.released}</StyledText>
-      <StyledText>Rating Top: {props.rating_top}</StyledText>
+      <StyledText color="secondary">
+        Fecha de lanzamiento: {props.released}
+      </StyledText>
+      <StyledText color="secondary">Rating Top: {props.rating_top}</StyledText>
       <StyledText style={styles.rating}>Rating: {props.rating}</StyledText>
     </View>
   </View>
@@ -32,8 +34,7 @@ const RepositoryItem = (props) => (
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingBottom: 5,
-    paddingTop: 5,
+    paddingVertical: 5,
   },
   rating: {
     padding: 4,
@@ -41,6 +42,10 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
     alignSelf: "flex-start",
     borderRadius: 4,
+    marginVertical: 4,
+    marginBottom: 4,
+    marginTop: 4,
+    overflow: "hidden",
   },
   image: {
     width: 120,
