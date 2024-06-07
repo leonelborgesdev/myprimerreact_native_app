@@ -6,14 +6,18 @@ import RespositoryRatings from "./RepositoryRatings.jsx";
 import theme from "../theme.js";
 
 const RepositoryItemHeader = (props) => (
-  <View>
-    <StyledText fontSize="subheading" fontWeight="bold">
-      {props.name}
-    </StyledText>
-    <Image style={styles.image} source={{ uri: props.background_image }} />
-    <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
-    <StyledText>Rating Top: {props.rating_top}</StyledText>
-    <StyledText style={styles.rating}>Rating: {props.rating}</StyledText>
+  <View style={{ flexDirection: "row", paddingBottom: 2 }}>
+    <View style={{ paddingRight: 10 }}>
+      <Image style={styles.image} source={{ uri: props.background_image }} />
+    </View>
+    <View style={{ flex: 1 }}>
+      <StyledText fontSize="subheading" fontWeight="bold">
+        {props.name}
+      </StyledText>
+      <StyledText>Fecha de lanzamiento: {props.released}</StyledText>
+      <StyledText>Rating Top: {props.rating_top}</StyledText>
+      <StyledText style={styles.rating}>Rating: {props.rating}</StyledText>
+    </View>
   </View>
 );
 
