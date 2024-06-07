@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 const AppBar = () => {
   return (
     <View style={styles.container}>
-      <StyledText fontWeight="bold" styles={styles.text}>
+      <StyledText fontWeight="bold" style={styles.text}>
         Repositoriesssss
       </StyledText>
     </View>
