@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import StyledText from "./StyledText.jsx";
 import RepositoryGenres from "./RepositoryGenres.jsx";
 import RespositoryRatings from "./RepositoryRatings.jsx";
@@ -10,6 +10,7 @@ const RepositoryItem = (props) => (
     <StyledText fontSize="subheading" fontWeight="bold">
       {props.name}
     </StyledText>
+    <Image style={styles.image} source={{ uri: props.background_image }} />
     <StyledText>Fecha de Lanzamiento: {props.released}</StyledText>
     <StyledText>Rating Top: {props.rating_top}</StyledText>
     <StyledText style={styles.rating}>Rating: {props.rating}</StyledText>
@@ -29,6 +30,11 @@ const styles = StyleSheet.create({
     color: theme.colors.white,
     backgroundColor: theme.colors.primary,
     alignSelf: "flex-start",
+    borderRadius: 4,
+  },
+  image: {
+    width: 120,
+    height: 120,
     borderRadius: 4,
   },
 });
