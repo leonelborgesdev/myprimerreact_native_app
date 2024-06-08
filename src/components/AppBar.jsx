@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import StyledText from "./StyledText.jsx";
 import Constants from "expo-constants";
 import theme from "../theme.js";
+import { Link } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,12 +17,25 @@ const styles = StyleSheet.create({
   },
 });
 
+const AppBarTap = ({ active, children, to }) => {
+  return (
+    <Link to={to}>
+      <StyledText fontWeight={"bold"} style={styles.text}>
+        {children}
+      </StyledText>
+    </Link>
+  );
+};
+
 const AppBar = () => {
   return (
     <View style={styles.container}>
-      <StyledText fontWeight="bold" style={styles.text}>
-        Repositoriesssss
-      </StyledText>
+      <AppBarTap active to={"/"}>
+        Repositories
+      </AppBarTap>
+      <AppBarTap active to={"/singin"}>
+        Sing In
+      </AppBarTap>
     </View>
   );
 };
