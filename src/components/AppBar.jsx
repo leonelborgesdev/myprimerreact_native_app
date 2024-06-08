@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import StyledText from "./StyledText.jsx";
 import Constants from "expo-constants";
 import theme from "../theme.js";
@@ -9,11 +9,12 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.appBar.primary,
     paddingTop: Constants.statusBarHeight + 10,
+    flexDirection: "row",
     paddingBottom: 10,
-    paddingLeft: 10,
   },
   text: {
     color: theme.appBar.textPrimary,
+    paddingHorizontal: 5,
   },
 });
 
@@ -29,7 +30,7 @@ const AppBarTap = ({ active, children, to }) => {
 
 const AppBar = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} component={TouchableWithoutFeedback}>
       <AppBarTap active to={"/"}>
         Repositories
       </AppBarTap>
