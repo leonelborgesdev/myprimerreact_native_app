@@ -1,5 +1,10 @@
 import React from "react";
-import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  ScrollView,
+} from "react-native";
 import StyledText from "./StyledText.jsx";
 import Constants from "expo-constants";
 import theme from "../theme.js";
@@ -31,24 +36,26 @@ const AppBarTap = ({ active, children, to }) => {
 const AppBar = () => {
   return (
     <View style={styles.container} component={TouchableWithoutFeedback}>
-      <AppBarTap active to={"/"}>
-        Repositories
-      </AppBarTap>
-      <AppBarTap active to={"/singin"}>
-        Sing In
-      </AppBarTap>
-      <AppBarTap active to={"/singin"}>
-        Register
-      </AppBarTap>
-      <AppBarTap active to={"/singin"}>
-        Sub to Twitch Acount
-      </AppBarTap>
-      <AppBarTap active to={"/singin"}>
-        Leo hi!
-      </AppBarTap>
-      <AppBarTap active to={"/singin"}>
-        Sing In
-      </AppBarTap>
+      <ScrollView horizontal>
+        <AppBarTap active to={"/"}>
+          Repositories
+        </AppBarTap>
+        <AppBarTap active to={"/singin"}>
+          Sing In
+        </AppBarTap>
+        <AppBarTap active to={"/singin"}>
+          Register
+        </AppBarTap>
+        <AppBarTap active to={"/singin"}>
+          Sub to Twitch Acount
+        </AppBarTap>
+        <AppBarTap active to={"/singin"}>
+          Leo hi!
+        </AppBarTap>
+        <AppBarTap active to={"/singin"}>
+          Sing In
+        </AppBarTap>
+      </ScrollView>
     </View>
   );
 };
