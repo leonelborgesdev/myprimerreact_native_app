@@ -37,6 +37,18 @@ const AppBar = () => {
       <AppBarTap active to={"/singin"}>
         Sing In
       </AppBarTap>
+      <AppBarTap active to={"/singin"}>
+        Register
+      </AppBarTap>
+      <AppBarTap active to={"/singin"}>
+        Sub to Twitch Acount
+      </AppBarTap>
+      <AppBarTap active to={"/singin"}>
+        Leo hi!
+      </AppBarTap>
+      <AppBarTap active to={"/singin"}>
+        Sing In
+      </AppBarTap>
     </View>
   );
 };
