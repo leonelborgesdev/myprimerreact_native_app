@@ -8,25 +8,34 @@ import {
 import StyledText from "./StyledText.jsx";
 import Constants from "expo-constants";
 import theme from "../theme.js";
-import { Link } from "react-router-native";
+import { Link, useLocation } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.appBar.primary,
     paddingTop: Constants.statusBarHeight + 10,
     flexDirection: "row",
-    paddingBottom: 10,
+  },
+  scroll: {
+    paddingBottom: 15,
   },
   text: {
-    color: theme.appBar.textPrimary,
+    color: theme.appBar.textSecondary,
     paddingHorizontal: 5,
+  },
+  active: {
+    color: theme.appBar.textPrimary,
   },
 });
 
-const AppBarTap = ({ active, children, to }) => {
+const AppBarTap = ({ children, to }) => {
+  const { pathname } = useLocation();
+  const active = pathname === to;
+
+  const textStyles = [styles.text, active && styles.active];
   return (
     <Link to={to}>
-      <StyledText fontWeight={"bold"} style={styles.text}>
+      <StyledText fontWeight={"bold"} style={textStyles}>
         {children}
       </StyledText>
     </Link>
@@ -36,25 +45,15 @@ const AppBarTap = ({ active, children, to }) => {
 const AppBar = () => {
   return (
     <View style={styles.container} component={TouchableWithoutFeedback}>
-      <ScrollView horizontal>
+      <ScrollView horizontal style={styles.scroll}>
         <AppBarTap active to={"/"}>
           Repositories
         </AppBarTap>
-        <AppBarTap active to={"/singin"}>
-          Sing In
-        </AppBarTap>
-        <AppBarTap active to={"/singin"}>
-          Register
-        </AppBarTap>
-        <AppBarTap active to={"/singin"}>
-          Sub to Twitch Acount
-        </AppBarTap>
-        <AppBarTap active to={"/singin"}>
-          Leo hi!
-        </AppBarTap>
-        <AppBarTap active to={"/singin"}>
-          Sing In
-        </AppBarTap>
+        <AppBarTap to={"/singin"}>Sing In</AppBarTap>
+        <AppBarTap to={"/Register"}>Register</AppBarTap>
+        <AppBarTap to={"/sub"}>Sub to Twitch Acount</AppBarTap>
+        <AppBarTap to={"/hi"}>Leo hi!</AppBarTap>
+        <AppBarTap to={"/sign"}>Sing In</AppBarTap>
       </ScrollView>
     </View>
   );
