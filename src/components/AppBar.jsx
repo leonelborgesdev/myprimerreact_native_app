@@ -45,15 +45,15 @@ const AppBarTap = ({ children, to }) => {
 const AppBar = () => {
   return (
     <View style={styles.container} component={TouchableWithoutFeedback}>
-      <ScrollView horizontal style={styles.scroll}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        style={styles.scroll}
+      >
         <AppBarTap active to={"/"}>
           Repositories
         </AppBarTap>
         <AppBarTap to={"/singin"}>Sing In</AppBarTap>
-        <AppBarTap to={"/Register"}>Register</AppBarTap>
-        <AppBarTap to={"/sub"}>Sub to Twitch Acount</AppBarTap>
-        <AppBarTap to={"/hi"}>Leo hi!</AppBarTap>
-        <AppBarTap to={"/sign"}>Sing In</AppBarTap>
       </ScrollView>
     </View>
   );
