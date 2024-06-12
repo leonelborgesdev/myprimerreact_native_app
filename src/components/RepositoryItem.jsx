@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, Platform } from "react-native";
 import StyledText from "./StyledText.jsx";
 import RepositoryGenres from "./RepositoryGenres.jsx";
 import RespositoryRatings from "./RepositoryRatings.jsx";
@@ -39,7 +39,11 @@ const styles = StyleSheet.create({
   rating: {
     padding: 4,
     color: theme.colors.white,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: Platform.select({
+      android: "purple",
+      ios: theme.colors.primary,
+      default: "orange",
+    }),
     alignSelf: "flex-start",
     borderRadius: 4,
     marginVertical: 4,
