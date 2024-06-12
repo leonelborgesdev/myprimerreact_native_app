@@ -2,7 +2,7 @@ import React from "react";
 import Constants from "expo-constants";
 import { View, Text } from "react-native";
 import ReposList from "./RepositoryLIst.jsx";
-import AppBar from "./AppBar.jsx";
+import AppBar from "./AppBar";
 import { Route, Routes } from "react-router-native";
 
 const Main = () => {
