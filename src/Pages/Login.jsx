@@ -1,7 +1,7 @@
 import React from "react";
-import { Formik } from "formik";
+import { Formik, useField } from "formik";
 import { Button, StyleSheet, View } from "react-native";
-import StyledTextInput from "../components/StyledTextInput";
+import StyledTextInput from "../components/StyledTextInput.jsx";
 
 const initialValues = {
   email: "",
@@ -14,25 +14,28 @@ const styles = StyleSheet.create({
   },
 });
 
+const FormikInputValue = ({ name, ...props }) => {
+  const [field, meta, helpers] = useField(name);
+  return (
+    <StyledTextInput
+      value={field.value}
+      onChangeText={(value) => helpers.setValue(value)}
+      {...props}
+    />
+  );
+};
+
 const Login = () => {
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => console.log(values)}
     >
-      {({ handleChange, handleSubmit, values }) => {
+      {({ handleSubmit }) => {
         return (
           <View style={styles.form}>
-            <StyledTextInput
-              placeholder="E-mail"
-              value={values.email}
-              onChangeText={handleChange("email")}
-            />
-            <StyledTextInput
-              placeholder="Password"
-              value={values.password}
-              onChangeText={handleChange("password")}
-            />
+            <FormikInputValue placeholder="E-mail" name="email" />
+            <FormikInputValue placeholder="Password" name="password" />
             <Button onPress={handleSubmit} title="Log In" />
           </View>
         );
