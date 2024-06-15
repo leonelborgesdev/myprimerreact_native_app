@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, useField } from "formik";
-import { Button, StyleSheet, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import StyledTextInput from "../components/StyledTextInput.jsx";
 
 const initialValues = {
@@ -25,9 +25,22 @@ const FormikInputValue = ({ name, ...props }) => {
   );
 };
 
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.email) {
+    errors.email = "Email is required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9-]+\[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  }
+  console.log(errors);
+  return errors;
+};
+
 const Login = () => {
   return (
     <Formik
+      validate={validate}
       initialValues={initialValues}
       onSubmit={(values) => console.log(values)}
     >
@@ -35,7 +48,11 @@ const Login = () => {
         return (
           <View style={styles.form}>
             <FormikInputValue placeholder="E-mail" name="email" />
-            <FormikInputValue placeholder="Password" name="password" />
+            <FormikInputValue
+              placeholder="Password"
+              name="password"
+              secureTextEntry
+            />
             <Button onPress={handleSubmit} title="Log In" />
           </View>
         );
