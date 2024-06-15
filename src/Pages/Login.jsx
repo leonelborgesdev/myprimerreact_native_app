@@ -1,12 +1,18 @@
 import React from "react";
 import { Formik } from "formik";
-import { Button, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, View } from "react-native";
 import StyledTextInput from "../components/StyledTextInput";
 
 const initialValues = {
   email: "",
   password: "",
 };
+
+const styles = StyleSheet.create({
+  form: {
+    margin: 12,
+  },
+});
 
 const Login = () => {
   return (
@@ -16,7 +22,7 @@ const Login = () => {
     >
       {({ handleChange, handleSubmit, values }) => {
         return (
-          <View>
+          <View style={styles.form}>
             <StyledTextInput
               placeholder="E-mail"
               value={values.email}
