@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, StyleSheet, FlatList } from "react-native";
-import videogames from "../data/videogames.js";
 import RepositoryItem from "./RepositoryItem.jsx";
 
 const ReposList = () => {
+  const videogames = { results: [] };
   return (
     <FlatList
       data={videogames.results}
