@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Text, StyleSheet, FlatList } from "react-native";
 import RepositoryItem from "./RepositoryItem.jsx";
+import { config } from "dotenv";
+config();
 
 const ReposList = () => {
-  const videogames = { results: [] };
+  const [videogames, setVideogames] = useState({ results: [] });
+
   return (
     <FlatList
       data={videogames.results}
